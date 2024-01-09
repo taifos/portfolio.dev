@@ -1,6 +1,5 @@
 # Portfolio for programmers and web developers
-
-![image](https://github.com/taifos/portfolio/assets/127537726/89ae110b-846e-428d-afdf-38f561b4a239)
+<img width="1310" alt="Captura de pantalla 2024-01-09 a las 19 52 04" src="https://github.com/taifos/portfolio.dev/assets/127537726/60a03f52-acc4-4376-a03e-b34a29a4dfbc">
 
 ## How work
 
