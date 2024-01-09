@@ -1,0 +1,228 @@
+---
+interface Props {
+  title: string;
+  description:string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-61DM7BCSPB"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-61DM7BCSPB");
+    </script>
+  </head>
+  <body class="text-slate-400 bg-slate-950">
+    <slot />
+  </body>
+</html>
+<style is:global>
+  :root {
+    --font-sans: "Inter", "San Francisco", "SF Pro Text", system-ui, sans-serif;
+  }
+  ::-moz-selection {
+    color: #fff;
+    background: rgb(8 145 178);
+  }
+  ::selection {
+    color: #fff;
+    background: rgb(8 145 178);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0px;
+    width: 100%;
+    min-height: 100vh;
+    /*background-color:var(--navy);*/
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6em;
+    overflow-x: hidden;
+  }
+
+  body::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+
+  body::-webkit-scrollbar:vertical {
+    width: 8px;
+  }
+
+  body::-webkit-scrollbar-button:increment,
+  body::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  body::-webkit-scrollbar:horizontal {
+    height: 10px;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: rgb(34 211 238);
+    border-radius: 5px;
+  }
+
+  body::-webkit-scrollbar-track {
+    border-radius: 5px;
+  }
+
+  .visibility-spy {
+    opacity: 1;
+    visibility: visible;
+  }
+  .hidden-spy {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    min-width: 85px;
+    background-color: rgb(226 232 240);
+    color: rgb(2 6 23);
+    text-align: center;
+    border-radius: 6px;
+    padding: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -40px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(226 232 240) transparent transparent transparent;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+  .line-section {
+    animation-timeline: view();
+
+  animation-name: appear;
+  animation-fill-mode:forwards;
+
+    position:absolute;
+    top:0px;
+    left:0px; 
+    right:0px;
+  }
+
+  .show-scroll {
+    view-timeline-name: --revealing-image;
+    view-timeline-axis: block;
+
+    animation-timeline: --revealing-image;  
+    animation-name: show-alt;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    animation-range: entry 20% cover 30%;
+  }
+
+  .btn-animation {
+    /*animation*/
+    -webkit-animation: changeColor 6s;
+    -moz-animation: changeColor 6s;
+    -ms-animation: changeColor 6s;
+    -o-animation: changeColor 6s;
+    animation: changeColor 6s;
+    /*animation-iteration-count*/
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -ms-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    /*animation-delay*/
+    -webkit-animation-delay: 50ms;
+    -moz-animation-delay: 50ms;
+    -ms-animation-delay: 50ms;
+    -o-animation-delay: 50ms;
+    animation-delay: 50ms;
+  }
+
+  @keyframes changeColor {
+    0% {
+      border-color: rgb(34 211 238);
+      box-shadow: 0 25px 50px -12px rgb(34 211 238 / 0.5);
+      /*scale: 90%;*/
+    }
+    50% {
+      border-color: rgb(236 72 153);
+      box-shadow: 0 25px 50px -12px rgb(236 72 153 / 0.5);
+      /*scale: 100%;*/
+    }
+    100% {
+      border-color: rgb(34 211 238);
+      /*scale: 90%;*/
+      box-shadow: 0 25px 50px -12px rgb(34 211 238 / 0.5);
+    }
+  }
+  @keyframes appear {
+    to {
+      bottom:0%;
+    }
+   from {
+      bottom:100%;
+            box-shadow: 0 25px 50px -12px rgb(34 211 238 / 0.5);
+
+    }
+  }
+  @keyframes show-alt {
+    from {
+      opacity: 0;
+      scale: 25%;
+    }
+    to {
+      opacity: 1;
+      scale: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{
+      scroll-behavior: auto;
+    }
+  }
+</style>

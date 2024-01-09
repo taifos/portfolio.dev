@@ -1,0 +1,46 @@
+---
+import H2Section from "./H2SectionCenter.astro";
+interface Props {
+  description:string,
+  technicalSkill: Array<string>,
+  softSkill:Array<string>
+}
+const { description, technicalSkill, softSkill } = Astro.props;
+---
+
+<section id="about" class="pt-20 mb-20" data-scroll-spy>
+  <header>
+    <H2Section
+      number="3"
+      pretitle="Me"
+      h2="About"
+      gradientFrom="from-teal-500"
+      gradientTo="to-teal-300"
+    />
+  </header>
+  <article>
+    <p>
+     {description}
+    </p>
+    <div class="mt-8 mb-2 font-semibold text-slate-200">TECHNICAL SKILLS</div>
+    <ul
+      class="list-disc grid grid-cols-2 md:grid-cols-4 pl-5 marker:text-cyan-400 [&>li]:mt-1 [&>li]:show-scroll"
+    >
+    {
+          technicalSkill.map(skill => {
+            return (<li>{skill}</li>)
+          })
+    }
+    </ul>
+    <div class="mt-8 mb-2 font-semibold text-slate-200">SOFT SKILLS</div>
+    <ul
+      class="list-disc grid grid-cols-2 md:grid-cols-4 pl-5 marker:text-cyan-400 [&>li]:mt-1 [&>li]:show-scroll"
+    >
+      {
+          softSkill.map(skill => {
+            return (<li>{skill}</li>)
+          })
+    }
+    </ul>
+  </article>
+</section>

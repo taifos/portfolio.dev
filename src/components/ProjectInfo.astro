@@ -1,0 +1,99 @@
+---
+import Brand from "./Brand.astro";
+import HTML5 from "./svg/HTML5.astro";
+import CSS3 from "./svg/CSS3.astro";
+import Bootstrap from "./svg/Bootstrap.astro";
+import PHP from "./svg/PHP.astro";
+import API from "./svg/API.astro";
+import MongoDB from "./svg/MongoDB.astro";
+import Tailwind from "./svg/Tailwind.astro";
+import AstroBuild from "./svg/AstroBuild.astro";
+import JavaScript from "./svg/JavaScript.astro";
+import TypeScript from "./svg/TypeScript.astro";
+interface Props {
+  title:string,
+  description: string,
+  url: string,
+  image:string,
+  technologies: Array<string>
+}
+const { title, description, url, image, technologies } = Astro.props;
+
+---
+<article
+    class="show-scroll ring-1 p-2 rounded-3xl bg-gradient-to-t from-slate-800/20 ring-white/10 relative my-5"
+  >
+    <div
+      class="relative isolate overflow-hidden p-8 flex flex-col ring-1 ring-white/10 shadow-massive rounded-2xl bg-card/80 lg:p-20"
+    >
+      <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-8">
+        <picture>
+          <a
+            href={url}
+            title={title}
+            target="_blank"
+            ><img
+              src={image}
+              class="w-full object-cover hover:grayscale transition duration-300 ease-in-out" alt={title}
+            /></a
+          >
+        </picture>
+        <div>
+          <h3 class="font-bold text-3xl">
+            <a
+              href={url}
+              class="text-slate-300 hover:text-slate-200"
+              title={title}
+              target="_blank">{title}</a>
+          </h3>
+          <p class="mt-3">
+            {description}
+          </p>
+          <div class="flex items-center gap-5 mt-10">
+           
+              {
+              technologies?.map(el => {
+                    switch(el){
+                      case "HTML5":
+                        return(<Brand><HTML5 /><span class="tooltiptext">HTML5</span></Brand>)
+                        break;
+                      case "CSS":
+                        return(<Brand><CSS3 /><span class="tooltiptext">CSS3</span></Brand>)
+                        break;
+                      case "JavaScript":
+                        return(<Brand><JavaScript /><span class="tooltiptext">JavaScript</span></Brand>)
+                        break;
+                      case "TypeScript":
+                        return(<Brand><TypeScript /><span class="tooltiptext">TypeScript</span></Brand>)
+                        break;
+                      case "Astro":
+                        return(<Brand><AstroBuild /><span class="tooltiptext">Astro Build</span></Brand>)
+                        break;  
+                      case "Tailwind":
+                        return(<Brand><Tailwind /><span class="tooltiptext">Tailwind</span></Brand>)
+                        break;      
+                      case "Bootstrap":
+                        return(<Brand><Bootstrap /><span class="tooltiptext">Bootstrap</span></Brand>)
+                        break; 
+                      case "PHP":
+                        return(<Brand><PHP /><span class="tooltiptext">PHP</span></Brand>)
+                        break; 
+                      case "API":
+                        return(<Brand><API /><span class="tooltiptext">API</span></Brand>)
+                        break; 
+                      case "Bootstrap":
+                        return(<Brand><Bootstrap /><span class="tooltiptext">Bootstrap</span></Brand>)
+                        break; 
+                      case "MongoDB":
+                        return(<Brand><MongoDB /><span class="tooltiptext">MongoDB</span></Brand>)
+                        break;          
+                    }
+                  })
+            }
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  

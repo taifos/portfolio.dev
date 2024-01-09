@@ -1,0 +1,203 @@
+---
+import Logo from "./svg/Logo.astro";
+---
+
+<header
+  id="landing-header"
+  class="py-4 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-slate-200 backdrop-blur-md border-b border-slate-600/40"
+>
+  <div class="flex flex-grow basis-0">
+    <a href="./" class="text-cyan-400 flex gap-2"
+      ><Logo /> <span class="font-bold text-slate-200">taifos.dev</span></a
+    >
+  </div>
+  <button
+    id="navbar-sticky"
+    type="button"
+    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-cyan-400 rounded-lg md:hidden hover:text-gray-400 focus:outline-none"
+  >
+    <span class="sr-only">Open main menu</span>
+    <svg
+      class="w-5 h-5"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 17 14"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M1 1h15M1 7h15M1 13h15"></path>
+    </svg>
+  </button>
+
+  <nav class="hidden md:block">
+    <ul
+      class="flex gap-7 [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:font-md [&>li>a]:inline-block [&>li>a]:py-2 [&>li>a]:hover:text-slate-100"
+    >
+      <li class="relative">
+        <a href="#experience" title="Work Experience" data-scroll-spy
+          >Work Experience</a
+        >
+        <div
+          class="absolute -bottom-4 left-0 right-0 h-1 w-full bg-cyan-400 shadow-lg shadow-cyan-400 rounded-t-md"
+          style="visibility:hidden;opacity:0;  transition: opacity 1s ease-out; box-shadow:0 2px 25px 2px #22d3ee"
+        >
+        </div>
+      </li>
+      <li class="relative">
+        <a href="#projects" title="Projects" data-scroll-spy>Projects</a>
+        <div
+          class="absolute -bottom-4 left-0 right-0 h-1 w-full bg-cyan-400 shadow-lg shadow-cyan-400 rounded-t-md"
+          style="visibility:hidden;opacity:0;  transition: opacity 1s ease-out; box-shadow:0 2px 25px 2px #22d3ee"
+        >
+        </div>
+      </li>
+      <li class="relative">
+        <a href="#about" title="About" data-scroll-spy>About</a>
+        <div
+          class="absolute -bottom-4 left-0 right-0 h-1 w-full bg-cyan-400 shadow-lg shadow-cyan-400 rounded-t-md"
+          style="visibility:hidden;opacity:0;  transition: opacity 1s ease-out; box-shadow:0 2px 25px 2px #22d3ee"
+        >
+        </div>
+      </li>
+      <li class="relative">
+        <a href="#contact" title="Contact" data-scroll-spy>Contact</a>
+        <div
+          class="absolute -bottom-4 left-0 right-0 h-1 w-full bg-cyan-400 shadow-lg shadow-cyan-400 rounded-t-md"
+          style="visibility:hidden;opacity:0;  transition: opacity 1s ease-out; box-shadow:0 2px 25px 2px #22d3ee"
+        >
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <div
+    id="menu-backdrop"
+    class={`
+      absolute  backdrop-blur-lg
+      translate-x-[var(--left)] translate-y-[var(--top)]
+      left-0 top-4 
+      w-[var(--width)] h-[var(--height)]
+      transition-all duration-500
+      ease-in-out opacity-0 -z-10
+    `}
+  >
+    <div
+      class="absolute bottom-0 left-0 right-0 h-1 w-full bg-cyan-400 shadow-lg shadow-cyan-400 rounded-t-md"
+      style="box-shadow:0 2px 25px 2px #22d3ee"
+    >
+    </div>
+  </div>
+</header>
+<div
+  class="items-center justify-between w-full md:flex md:w-auto md:order-1"
+  id="navbar-aside"
+>
+  <ul
+    class="fixed top-[73px] bottom-0 hidden backdrop-blur-lg flex-col w-full z-50 p-4 md:p-0 font-medium border md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-slate-950/70 border-slate-900 [&>li>a]:font-md [&>li>a]:inline-block [&>li>a]:py-2"
+  >
+    <li class="relative">
+      <a href="#experience" title="Work Experience">Work Experience</a>
+    </li>
+    <li class="relative"><a href="#projects" title="Projects">Projects</a></li>
+    <li class="relative"><a href="#about" title="About">About</a></li>
+    <li class="relative"><a href="#contact" title="Contact">Contact</a></li>
+  </ul>
+</div>
+<div
+  class="absolute z-10 -top-20 h-96 w-2/3 right-1/4 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-400 via-slate-950 to-slate-950 opacity-30 -rotate-12"
+>
+</div>
+
+<script>
+  const listItem = document.querySelectorAll("#landing-header li");
+  const menuBackDrop = document.querySelector("#menu-backdrop") as HTMLElement;
+
+  listItem.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      const { left, top, width, height } = item.getBoundingClientRect();
+
+      menuBackDrop.style.setProperty("--left", `${left}px`);
+      menuBackDrop.style.setProperty("--top", `${top}px`);
+      menuBackDrop.style.setProperty("--width", `${width}px`);
+      menuBackDrop.style.setProperty("--height", `${height}px`);
+
+      menuBackDrop.style.opacity = "1";
+      menuBackDrop.style.visibility = "visible";
+    });
+
+    item.addEventListener("mouseleave", () => {
+      menuBackDrop.style.opacity = "0";
+      menuBackDrop.style.visibility = "hidden";
+    });
+  });
+</script>
+
+<script>
+  const headerEl = document.querySelector("#landing-header") as HTMLElement;
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.9,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const { isIntersecting } = entry;
+      if (isIntersecting) {
+        const color = entry.target.getAttribute("data-header-color");
+        headerEl.style.color = color;
+      }
+    });
+  }, observerOptions);
+
+  const sectionElements = document.querySelectorAll(".landing-section");
+  sectionElements.forEach((section) => observer.observe(section));
+</script>
+
+<script>
+  const d = document;
+
+  const $sections = d.querySelectorAll("section[data-scroll-spy]");
+  const cb = (entries) => {
+    entries.forEach((entry) => {
+      const id = entry.target.getAttribute("id");
+      const $query = d.querySelector(
+        `a[data-scroll-spy][href="#${id}"]~.absolute`,
+      ) as HTMLElement;
+      if (entry.isIntersecting) {
+        $query.style.visibility = "visible";
+        $query.style.opacity = "1";
+      } else {
+        $query.style.visibility = "hidden";
+        $query.style.opacity = "0";
+      }
+    });
+  };
+  const observer = new IntersectionObserver(cb, {
+    rootMargin: "-250px",
+    threshold: [0.25],
+  });
+
+  $sections.forEach((el) => observer.observe(el));
+</script>
+
+<script>
+  // For click event and also reference for outer div tag
+  const toggleMenu = document.querySelector("#navbar-sticky");
+  const aside = document.querySelector("#navbar-aside ul");
+
+  toggleMenu.addEventListener("click", function () {
+    aside.classList.contains("hidden")
+      ? aside.classList.remove("hidden")
+      : aside.classList.add("hidden");
+  });
+
+  aside.addEventListener("click", function () {
+    aside.classList.add("hidden");
+  });
+</script>

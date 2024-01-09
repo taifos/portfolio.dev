@@ -1,0 +1,29 @@
+---
+import H2Section from "./H2SectionCenter.astro";
+import ProjectInfo from "./ProjectInfo.astro";
+
+const { projects } = Astro.props;
+---
+
+<section id="projects" class="pt-20 mb-20 relative" data-scroll-spy>
+  <header>
+    <H2Section
+      number="2"
+      pretitle="Develop"
+      h2="Personal Projects Built"
+      gradientFrom="from-orange-500"
+      gradientTo="to-amber-400"
+    />
+  </header>
+  {
+        projects.map(project => {
+          return (<ProjectInfo title={project.title} url={project.url} description={project.description} image={project.image} technologies={project.technologiesUsed} />)
+        })
+  }
+
+ 
+  <div
+    class="absolute -z-10 top-1/2 h-full w-full left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-400 via-slate-950 to-slate-950 opacity-20"
+  >
+  </div>
+</section>

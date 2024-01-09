@@ -1,0 +1,45 @@
+---
+interface Props {
+  dateRange: string,
+  title:string,
+  subtitle?:string,
+  responsabilities?: Array<string>,
+  keyAccomplishment?: Array<string>
+}
+const { dateRange, title, subtitle, responsabilities, keyAccomplishment } = Astro.props;
+---
+<div class="mt-12">
+    <time class="mb-1 text-sm leading-none text-cyan-400"
+      >{dateRange}</time>
+    <h3 class="text-lg font-semibold text-slate-200">
+      {title}
+    </h3>
+    <p class="mb-4">{subtitle}</p>
+    <article class="ml-5 mt-6">
+      {
+        responsabilities && 
+      <h4 class="mt-4 mb-2 font-semibold text-slate-200">Responsibilities</h4>
+      <ul class="list-disc pl-5 marker:text-cyan-400">
+        {
+        responsabilities.map(el => {
+         return (
+            <li set:html={el}></li>
+          )
+        })
+      }
+      </ul>
+      }
+      { keyAccomplishment &&
+      <h4 class="mt-5 mb-2 font-semibold text-slate-200">Key accomplishment</h4>
+      <ul class="list-disc pl-5 marker:text-cyan-400">
+        {
+        keyAccomplishment.map(el => {
+         return (
+            <li set:html={el}></li>
+          )
+        })
+      }
+      </ul>
+      }
+    </article>
+  </div>

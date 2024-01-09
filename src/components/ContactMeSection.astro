@@ -1,0 +1,32 @@
+---
+import H2SectionCenter from "./H2SectionCenter.astro";
+interface Props {
+  email:string
+}
+const { email } = Astro.props;
+---
+
+<section id="contact" class="pt-20 mb-20" data-scroll-spy>
+  <header>
+    <H2SectionCenter
+      number="4"
+      pretitle="Contact"
+      h2="Get In Touch"
+      gradientFrom="from-purple-700"
+      gradientTo="to-pink-500"
+    />
+  </header>
+  <article class="text-center max-w-2xl mx-auto">
+    <p>
+      My inbox is always open. Whether you have a proposal, question or just
+      want to say hi, I’ll try my best to get back to you!
+    </p>
+    <footer class="mt-10">
+      <a 
+        href=`mailto:${email}`
+        title="Email"
+        class="btn-animation inline-block py-3 px-6 text-slate-200 border-2 border-cyan-400 rounded-lg font-semibold shadow-2xl shadow-cyan-400/50 hover:transition-colors hover:duration-500 hover:bg-slate-900 mt-5"
+        >Contact me here</a>
+    </footer>
+  </article>
+</section>

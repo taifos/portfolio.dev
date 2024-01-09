@@ -1,0 +1,24 @@
+---
+import H2Section from "./H2SectionCenter.astro";
+import JobInfo from "./JobInfo.astro"
+
+const { jobs } = Astro.props;
+
+---
+
+<section id="experience" class="pt-20 mb-20 relative" data-scroll-spy>
+  <header>
+    <H2Section number="1" pretitle="Work" h2="Experience" />
+  </header>
+  {
+        jobs.map(job => {
+          return (<JobInfo dateRange={ job.dateRange} title={job.title} subtitle={job.subtitle} responsabilities={job.responsabilities} keyAccomplishment = {job.keyAccomplishment} />)
+        })
+      }
+
+  
+  <div
+    class="absolute -z-10 top-1/2 h-full w-full left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-400 via-slate-950 to-slate-950 opacity-5"
+  >
+  </div>
+</section>

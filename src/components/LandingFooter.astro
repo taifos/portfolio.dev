@@ -1,0 +1,51 @@
+---
+import Github from "./svg/Github.astro";
+import Twitter from "./svg/Twitter.astro";
+import Linkedin from "./svg/Linkedin.astro";
+
+interface Props {
+  github?: string,
+  twitter?:string,
+  linkedin?:string
+}
+const { github, twitter, linkedin } = Astro.props;
+
+---
+
+<footer
+  class="container mx-auto max-w-5xl text-center mt-40 pb-5 text-sm font-code relative"
+>
+  <a
+    href="https://taifos.dev/"
+    target="_blank"
+    title="taifos"
+    class="text-opacity-10 hover:text-cyan-400 hover:transition-colors hover:duration-500"
+    >&copy; 2023 · Designed & Built by taifos</a
+  >
+  <ul
+    class="after:bg-slate-600 after:content-[''] after:block after:w-[1px] after:h-20 after:mx-auto flex flex-col absolute lg:fixed gap-5 z-20 bottom-0 left-5 lg:left-10 [&>li>a]:text-slate-500 [&>li>a:hover]:text-slate-300 [&>li>a:hover]:transition-all [&>li>a:hover]:duration-500 [&>li>a:hover]:ease-in-out"
+  >
+  {
+    github &&
+    <li>
+      <a href={github} title="Github" target="_blank"
+        ><Github /></a>
+    </li>
+  }
+  {
+    twitter &&
+    <li>
+      <a href={twitter} title="Twitter" target="_blank"><Twitter /></a>
+    </li>
+  }
+  {
+    linkedin &&
+    <li>
+      <a
+        href={linkedin}
+        title="Linkedin"
+        target="_blank"><Linkedin /></a>
+    </li>
+  }
+  </ul>
+</footer>

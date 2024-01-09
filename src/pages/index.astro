@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LandingHeader from "../components/LandingHeader.astro";
+import LandingFooter from "../components/LandingFooter.astro";
+import HeroSection from "../components/HeroSection.astro";
+import AboutMeSection from "../components/AboutMeSection.astro";
+import WorkSection from "../components/WorkSection.astro";
+import ProjectsSection from "../components/ProjectsSection.astro";
+import ContactMeSection from "../components/ContactMeSection.astro";
+
+import dataConfig from "../data/config.json";
+
+---
+
+<Layout title={dataConfig.basic.title} description={dataConfig.basic.description}>
+  <LandingHeader />
+  <main class="w-screen">
+    <HeroSection fullName={dataConfig.hero.fullName} iam={dataConfig.hero.iam} shortDescription={dataConfig.hero.shortDescription} cvUrl={dataConfig.hero.cvUrl}/>
+    <div class="container px-2 md:px-0 mx-auto lg:max-w-4xl xl:max-w-5xl">
+      <WorkSection jobs={dataConfig.workExperience} />
+      <ProjectsSection projects={dataConfig.projects}/>
+      <AboutMeSection description={dataConfig.aboutMe.description} technicalSkill={dataConfig.aboutMe.technicalSkills} softSkill={dataConfig.aboutMe.softSkills} />
+      <ContactMeSection email={dataConfig.social.email}/>
+    </div>
+  </main>
+  <LandingFooter github={dataConfig.social.github} twitter={dataConfig.social.twitter} linkedin={dataConfig.social.linkedin} />
+</Layout>

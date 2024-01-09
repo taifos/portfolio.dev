@@ -1,0 +1,89 @@
+{
+  "basic": {
+    "title": "taifos by Juan Ruiz | Portfolio",
+    "description": "Porfolio example by taifos"
+  },
+  "hero": {
+    "fullName": "John Doe",
+    "iam": ["Frontend Engineer", "Problem-solving"],
+    "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eleifend tempus metus eget mollis. Sed efficitur, nibh et auctor pellentesque, ipsum lectus elementum lacus, vitae aliquet velit velit quis sem.",
+    "cvUrl": "/files/cv-template.pdf"
+  },
+  "workExperience": [
+    {
+      "dateRange": "June 2022 - Present",
+      "title": "Web developer at NameEnterprise",
+      "subtitle": "SaaS, B2B, B2C",
+      "responsabilities": [
+        "Maecenas sit amet tempor nibh. Mauris ut finibus quam.",
+        "<b>Donec tincidunt massa eros</b> et egestas elit blandit ac.",
+        "Morbi ultricies nulla pulvinar urna pretium facilisis.",
+        "In hac habitasse platea dictumst"
+      ],
+      "keyAccomplishment": [
+        "Cras tristique, magna non dictum iaculis, metus leo dignissim purus, a mollis odio lectus ut risus.",
+        "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce lorem risus, maximus id semper ut, malesuada nec magna.",
+        "Phasellus id tortor ut lectus rutrum aliquet."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Project 1",
+      "url": "",
+      "description": "Proin mi velit, lacinia in lectus elementum, fermentum vulputate dolor. Nulla pulvinar, diam sit amet hendrerit efficitur, tellus quam blandit ipsum, porttitor dictum elit diam in massa. Nunc nec ultricies erat, non cursus tellus.",
+      "technologiesUsed": [
+        "HTML5",
+        "CSS",
+        "Bootstrap",
+        "PHP",
+        "API",
+        "MongoDB"
+      ],
+      "image": "/images/example-landing.jpg"
+    },
+    {
+      "title": "Project 2",
+      "url": "",
+      "description": "Sed viverra eros in maximus maximus. Morbi facilisis bibendum dolor ut vestibulum. Nulla tincidunt volutpat nisl, non pellentesque risus iaculis ut.",
+      "technologiesUsed": [
+        "HTML5",
+        "CSS",
+        "JavaScript",
+        "TypeScript",
+        "Astro",
+        "Tailwind"
+      ],
+      "image": "/images/example-landing.jpg"
+    }
+  ],
+  "aboutMe": {
+    "description": "Etiam vehicula bibendum justo, et euismod odio pharetra eu. Maecenas suscipit massa quis sapien vulputate, in facilisis nisl pharetra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla neque, vehicula eget pellentesque et, vulputate ac purus. Ut eu ante magna. Integer felis elit, pulvinar ut porta sed, imperdiet eget dolor. Ut feugiat, dui ultrices venenatis pulvinar, augue justo consectetur dui, at tristique justo enim eget enim. Quisque ut sapien eu lectus fringilla luctus ut a nisi. Cras eget laoreet purus.",
+    "technicalSkills": [
+      "JavaScript",
+      "TypeScript",
+      "Vue",
+      "Nuxt",
+      "AngularJS",
+      "API",
+      "Tailwind",
+      "Bootstrap",
+      "CSS3",
+      "PHP"
+    ],
+    "softSkills": [
+      "Quick learner",
+      "Problem solver",
+      "Assertive",
+      "Mentoring",
+      "Coaching",
+      "Team player"
+    ]
+  },
+  "social": {
+    "github": "https://github.com/",
+    "twitter": "https://twitter.com/",
+    "linkedin": "https://www.linkedin.com/in/",
+    "email": "johndoe@gmail.com"
+  }
+}

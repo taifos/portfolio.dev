@@ -1,0 +1,26 @@
+---
+const { gradientFrom, gradientTo, pretitle, h2 } = Astro.props;
+---
+
+<div class="flex flex-col justify-center">
+  <div
+    class="relative z-10  w-[1px]  mx-auto h-96 ">
+    <div class="absolute top-0 bottom-1 right-0 left-0 z-20 bg-gradient-to-b from-slate-950 to-transparent"></div>
+      <div class:list={["line-section bg-gradient-to-t z-10",  gradientFrom || "from-cyan-600",
+      gradientTo || "to-cyan-400", ]}></div>
+  </div>
+  <h3
+    class:list={[
+      "inline-block mx-auto text-transparent bg-gradient-to-r  text-center bg-clip-text text-2xl md:text-3xl font-bold mt-4 ",
+      gradientFrom || "from-cyan-600",
+      gradientTo || "to-cyan-400",
+    ]}
+  >
+    {pretitle}
+  </h3>
+  <h2
+    class="flex justify-center align-center relative  text-slate-200 font-bold text-3xl md:text-5xl whitespace-nowrap mb-10 md:mt-3"
+  >
+    {h2}
+  </h2>
+</div>
